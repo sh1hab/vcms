@@ -1,0 +1,144 @@
+
+
+
+.sidenavS {
+  height: 100%;
+  width: 20%;
+  position: static;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-right: 2px solid #2f00ff;
+  border-radius: 0px;
+  overflow-x: hidden;
+  padding-top: 0px;
+  float: left;
+}
+.sidenavT {
+  height: 100%;
+  width: 15%;
+  position: static;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-right: 2px solid #2f00ff;
+  border-radius: 0px;
+  overflow-x: hidden;
+  padding-left: 20px;
+  float: left;
+}
+
+.sidenavR_T {
+  height: 100%;
+  width: 47%;
+  position: static;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-left: 2px solid #2f00ff;
+  border-radius: 0px;
+  overflow-x: hidden;
+  
+  float: right;
+}
+.sidenavR_S {
+  height: 100%;
+  width: 38%;
+  position: static;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-left: 2px solid #2f00ff;
+  border-radius: 0px;
+  overflow-x: hidden;
+  
+  float: right;
+}
+
+.sidenav a {
+  padding: 0px 0px 0px 20px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #14914c;
+  display: block;
+}
+
+#sidenavT_text {
+  text-decoration: none;
+  font-size: 30px;
+  color: #000000;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #00ff22;
+}
+
+
+.mainT {
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+  width: 38%;
+  
+}
+.mainS {
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+  width: 47%;
+  
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 0px;}
+  .sidenav a {font-size: 18px;}
+}
+
+#borderStyleReg{
+  
+  border: 1px solid #2f00ff;
+  border-radius: 15px;
+  padding:30px
+}
+#borderStyle{
+  width: 100%;
+  border: 1px solid #2f00ff;
+  border-radius: 15px;
+  padding:30px
+}
+
+.sidenav_coursePanel {
+  height: 100%;
+  width: 22%;
+  position: static;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-right: 2px solid #2f00ff;
+  border-radius: 0px;
+  overflow-x: hidden;
+  text-align: center;
+  padding-left: 0px;
+  float: left;
+}
+.main_coursePanel {
+  padding-left: 20px;
+  padding-right: 20px;
+  float: left;
+  width: 40%;
+  
+}
+.sidenavR_coursePanel {
+  height: 100%;
+  width: 30%;
+  position: static;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  border-left: 2px solid #2f00ff;
+  border-radius: 0px;
+  overflow-x: hidden;
+  
+  float: right;
+}
