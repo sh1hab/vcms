@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1 style="text-align:center">  </h1>
+    <h1 style="text-align:center"></h1>
 
     <div class="sidenav_coursePanel">
 
@@ -15,15 +15,19 @@
                 <th>Start time</th>
                 <th>Zoom URL</th>
                 <th>Agenda</th>
-{{--                <th>Action</th>--}}
+                <th>ID</th>
+                <th>Password</th>
+                {{-- <th>Action</th>--}}
             </tr>
             </thead>
             <tbody>
             @for( $i=0; $i< count($meetings); $i++ )
                 <tr>
-                    <td>{{ $meetings[$i]['start_time'] }}</td>
+                    <td>{{ $meetings[$i]['start_at'] }}</td>
                     <td><a href="{{ $meetings[$i]['join_url'] }}">{{ $meetings[$i]['join_url'] }}</a></td>
                     <td>{{ $meetings[$i]['agenda'] }}</td>
+                    <td>{{$meetings[$i]['items']['id']}}</td>
+                    <td>{{$meetings[$i]['items']['pwd']}}</td>
                 </tr>
             @endfor
             </tbody>

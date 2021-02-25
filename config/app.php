@@ -176,6 +176,7 @@ return [
         App\Providers\RouteServiceProvider::class,
 
         //.. Other providers
+        Shihab\Zoom\ZoomServiceProvider::class
 
     ],
 

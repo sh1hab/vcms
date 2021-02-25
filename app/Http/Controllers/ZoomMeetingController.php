@@ -36,22 +36,21 @@ class ZoomMeetingController
         $data = json_decode($response->body(), true);
         $data['meetings'] = array_map(function (&$m) {
             $m['start_at'] = $this->toUnixTimeStamp($m['start_time'], $m['timezone']);
+            $m['url'] = parse_url($m['join_url'],PHP_URL_QUERY);
+             parse_str( $m['url'], $m['items'] );
+             $m['items']['id'] = explode('/',$m['join_url']);
+            $m['items']['id'] = explode('?',$m['items']['id'][4])[0];
             return $m;
         }, $data['meetings']);
-
         return view('meeting.list')->with('meetings',$data['meetings']);
 
-        return [
-            'success' => $response->ok(),
-            'data' => $data,
-        ];
     }
 
     public function create(Request $request){
         return view('meeting.create');
     }
 
-    public function save(Request $request): JsonResponse
+    public function save(Request $request)
     {
         $validator = Validator::make($request->all(), [
             'topic' => 'required|string',
@@ -60,8 +59,10 @@ class ZoomMeetingController
         ]);
 
         if ($validator->fails()) {
-            return $this->respondNotValidated($validator->errors()->first(), $validator->errors()->all());
+            return back()->with($validator->errors()->all());
+//            return $this->respondNotValidated($validator->errors()->first(), $validator->errors()->all());
         }
+
         $data = $validator->validated();
 
         $response = $this->zoomApi->post([
