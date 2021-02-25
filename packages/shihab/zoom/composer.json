@@ -1,0 +1,21 @@
+{
+    "name": "shihab/zoom",
+    "description": "This package helps to create zoom meeting through api",
+    "type": "librart",
+    "require": {
+        "firebase/php-jwt": "9999999-dev"
+    },
+    "license": "mit",
+    "authors": [
+        {
+            "name": "sh1hab",
+            "email": "shihab.gsc10@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Shihab\\Zoom\\": "src/"
+        }
+    }
+}
