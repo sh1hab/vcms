@@ -64,3 +64,12 @@ Route::post('/signup_student','RegistrationController@signup_student');
 Route::get('/meeting', function(){
     return view('meeting');
 });
+
+Route::group([
+    'prefix' => 'zoom',
+], function () {
+    Route::get('list', 'ZoomMeetingController@list');
+    Route::get('create', 'ZoomMeetingController@create');
+    Route::post('save', 'ZoomMeetingController@save')->name('zoom.create');
+    Route::get('past/meeting/{meetingID}/details', 'ZoomMeetingController@pastMeetingDetails');
+});
