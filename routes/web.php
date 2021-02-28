@@ -61,15 +61,15 @@ Route::post('/create_course','TeacherPanelController@create_course');
 Route::post('/signup_teacher','RegistrationController@signup_teacher');
 Route::post('/signup_student','RegistrationController@signup_student');
 
-Route::get('/meeting', function(){
-    return view('meeting');
-});
-
 Route::group([
     'prefix' => 'zoom',
 ], function () {
-    Route::get('list', 'ZoomMeetingController@list');
+    Route::get('list', 'ZoomMeetingController@list')->name('zoom.list');
     Route::get('create', 'ZoomMeetingController@create');
     Route::post('save', 'ZoomMeetingController@save')->name('zoom.create');
     Route::get('past/meeting/{meetingID}/details', 'ZoomMeetingController@pastMeetingDetails');
+    Route::get('/meeting/', function(){
+        return view('meeting');
+    });
+
 });

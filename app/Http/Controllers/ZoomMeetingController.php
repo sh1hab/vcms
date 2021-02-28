@@ -3,6 +3,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use DateTimeZone;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
@@ -35,7 +36,9 @@ class ZoomMeetingController
 
         $data = json_decode($response->body(), true);
         $data['meetings'] = array_map(function (&$m) {
-            $m['start_at'] = $this->toUnixTimeStamp($m['start_time'], $m['timezone']);
+//            $m['start_at'] = $this->toUnixTimeStamp($m['start_time'], $m['timezone']);
+            $m['start_at'] = Carbon::createFromTimestamp($m['start_time'])->toDateTimeString();
+//            $m['start_at'] = $m['start_time'];
             $m['url'] = parse_url($m['join_url'],PHP_URL_QUERY);
              parse_str( $m['url'], $m['items'] );
              $m['items']['id'] = explode('/',$m['join_url']);
@@ -91,11 +94,13 @@ class ZoomMeetingController
         $zoom->start_time = $data['start_time'];
         $zoom->save();
 
-        return response()->json([
-            'success' => $response->status() === 201,
-            'data' => $data,
-            'zoom_id' => $zoom->id
-        ], 201);
+//        return response()->json([
+//            'success' => $response->status() === 201,
+//            'data' => $data,
+//            'zoom_id' => $zoom->id
+//        ], 201);
+
+        return redirect()->route('');
     }
 
     public function pastMeetingDetails($meetingID): JsonResponse
