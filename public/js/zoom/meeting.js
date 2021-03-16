@@ -178,7 +178,7 @@ function websdkready() {
                 );
             })(),
             passWord: tmpArgs.pwd,
-            leaveUrl: "zoom/list",
+            leaveUrl: "/zoom/list",
             role: parseInt(tmpArgs.role, 10),
             userEmail: (function () {
                 try {

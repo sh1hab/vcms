@@ -116,6 +116,16 @@
                                 >
                                     Profile
                                 </a>
+
+                                <a class="dropdown-item"
+                                   <?php if(Session::get('role') != 's'){ ?>
+                                   href="/zoom/meeting"
+                                    <?php }?>
+                                >
+                                    Meeting
+                                </a>
+
+
                                 <a class="dropdown-item" href="{{ url('/logout') }}" style="color:red">
                                     Logout
                                 </a>

@@ -71,5 +71,7 @@ Route::group([
     Route::get('/meeting/', function(){
         return view('meeting');
     });
+//    Route::get('delete', 'ZoomMeetingController@delete');
+
 
 });

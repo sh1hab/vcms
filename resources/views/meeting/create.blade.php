@@ -9,10 +9,14 @@
     </div>
 
     <div class="main_coursePanel">
-        <p style="font-size:20px;">Upload :</p>
+        <p style="font-size:20px;">Create new meeting :</p>
         <form method="post" enctype="multipart/form-data" action="{{ route('zoom.create') }}" id="borderStyle">
 
             <input type="hidden" name="_token" value="{{ csrf_token() }}">
+            @if($errors->any())
+                {!! implode('', $errors->all('<div>:message</div>')) !!}
+            @endif
+
             <div class="form-group">
                 <label>Topic *
                     <input type="text" required class="form-control" name="topic">
@@ -28,6 +32,12 @@
             <div class="form-group">
                 <label>
                     <input type="date" required class="form-control" name="start_time">
+                </label>
+            </div>
+
+            <div class="form-group">
+                <label>
+{{--                    <input type="time" required class="form-control" name="start_time">--}}
                 </label>
             </div>
 
